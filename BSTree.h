@@ -15,20 +15,20 @@ private:
     BTNode<int, Value> *root;
     int nodeCounter;
 
-    BTNode<int, Value> *insertHelper(BTNode<int, Value> *root, int key, Value value) {
-        if (root == NULL) { return new BTNode<int, Value>(key, value); }
-        if (key < this->root->getKey())
-            root->setLeft(insertHelper(root->getLeft(), key, value));
+    BTNode<int, Value> *insertHelper(BTNode<int, Value> * _root, int _key, Value _value) {
+        if (_root == NULL) { return new BTNode<int, Value>(_key, _value); }
+        if (_key < this->root->getKey())
+            _root->setLeft(insertHelper(_root->getLeft(), _key, _value));
         else
-            root->setRight(insertHelper(root->getRight(), key, value));
-        return root;
+            _root->setRight(insertHelper(_root->getRight(), _key, _value));
+        return _root;
     }
 
-    void printHelper(BTNode<int, Value> *root) {
-        if (root == NULL) return;
-        std::cout << "key :" << root->getKey() << " - value :" << root->getValue() << std::endl;
-        printHelper(root->getLeft());
-        printHelper(root->getLeft());
+    void printHelper(BTNode<int, Value> *_root) {
+        if (_root == NULL) return;
+        std::cout << "key :" << _root->getKey() << " - value :" << _root->getValue() << std::endl;
+        printHelper(_root->getLeft());
+        printHelper(_root->getLeft());
     }
 
 public:
@@ -36,8 +36,8 @@ public:
         this->root = NULL;
     }
 
-    void insert(int key, Value value) {
-        this->root = this->insertHelper(this->root, key, value);
+    void insert(int _key, Value _value) {
+        this->root = this->insertHelper(this->root, _key, _value);
         nodeCounter ++;
     }
 

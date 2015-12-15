@@ -1,0 +1,13 @@
+//
+// Created by Arash Khajelou on 12/15/15.
+//
+
+#ifndef DATASTRUCTURES_ARRAYPRENTPOINTERTREE_H
+#define DATASTRUCTURES_ARRAYPRENTPOINTERTREE_H
+
+
+class ArrayPrentPointerTree {
+};
+
+
+#endif //DATASTRUCTURES_ARRAYPRENTPOINTERTREE_H

@@ -1,25 +1,15 @@
 #include <iostream>
-#include "BTNode.h"
-#include "BSTree.h"
+#include "LinkedList.h"
 
 using namespace std;
 
 int main() {
-    BSTree<string>* bsTree = new BSTree<string>;
-
-    for(int i=0; i<10; i++){
-        int key = 0;
-        cout<<"please enter key for node "<<i<<" : ";
-        cin>>key;
-        string value;
-        cout<<"please enter value for node "<<i<<" : ";
-        cin>>value;
-
-        bsTree->insert(key,value);
-    }
+    int a[10] = {1,2,3,4,5,6,7,8,9,10};
+    LinkedList<int> linkedList(a, 10);
 
     cout<<endl;
-    bsTree->print();
+    linkedList.moveToFirst();
+    cout<<linkedList.get(10);
 
     return 0;
 }
