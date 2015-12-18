@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/LinkedList.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/LinkedMap.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/PPTNode.h" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

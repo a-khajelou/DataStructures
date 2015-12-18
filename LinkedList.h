@@ -15,9 +15,13 @@ private:
     Link<T> *end;
     Link<T> *current;
     int size;
+    int idIncrement;
 
 public:
     LinkedList() {
+        this->size = 0;
+        this->idIncrement = 0;
+
         this->start = new Link<T>(NULL);
         this->end = new Link<T>(NULL);
 
@@ -31,6 +35,9 @@ public:
     }
 
     LinkedList(T *inputList, int size) {
+        this->size = 0;
+        this->idIncrement = 0;
+
         this->start = new Link<T>(NULL);
         this->end = new Link<T>(NULL);
 
@@ -42,24 +49,27 @@ public:
 
         this->current = this->start;
 
-        for(int i=0; i<size; i++){
+        for (int i = 0; i < size; i++) {
             this->append(inputList[i]);
         }
     }
 
-    void append(T _newItem) {
+    int append(T *_newItem) {
         Link<T> *newItem = new Link<T>(_newItem, this->end, this->end->getPrev());
         this->end->getPrev()->setNext(newItem);
         this->end->setPrev(newItem);
         this->size++;
+        this->idIncrement++;
+
+        return this->idIncrement-1;
     }
 
-    void insert(T _newItem, int index) {
+    int insert(T *_newItem, int index) {
         Link<T> *tmp = this->start;
         for (int indexCounter = 0; indexCounter < index; indexCounter++) {
             if (tmp->getNext()->getNext() == NULL) {
                 std::cout << "\nIndex out of range\n";
-                return;
+                return -1;
             }
             tmp = tmp->getNext();
         }
@@ -68,6 +78,9 @@ public:
         tmp->setNext(newItem);
         tmp->getNext()->setPrev(newItem);
         this->size++;
+        this->idIncrement++;
+
+        return this->idIncrement-1;
     }
 
     bool moveToNext() {
@@ -86,7 +99,7 @@ public:
         return current->getNext()->getNext() != NULL;
     }
 
-    T getNext() {
+    T *getNext() {
         if (!this->moveToNext()) {
             std::cout << "\nthere is no more elements\n";
             return NULL;
@@ -95,6 +108,10 @@ public:
     }
 
     T get(int index) {
+        if (index > (size - 1)) {
+            std::cout << "\nIndex out of range\n";
+            return NULL;
+        }
         Link<T> *tmp = this->start;
         for (int indexCounter = 0; indexCounter < index; indexCounter++) {
             if (tmp->getNext()->getNext() == NULL) {

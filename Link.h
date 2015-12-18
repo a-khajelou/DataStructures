@@ -10,45 +10,45 @@
 template<typename T>
 class Link {
 private:
-    T element;
+    T *element;
     Link *next;
     Link *prev;
 
 public:
 
-    Link(T _element){
+    Link(T *_element) {
         this->element = _element;
         this->next = NULL;
         this->prev = NULL;
     }
 
-    Link(T _element, Link* _next , Link* _prev){
+    Link(T *_element, Link *_next, Link *_prev) {
         this->element = _element;
         this->next = _next;
         this->prev = _prev;
     }
 
-    T getElement(){
+    T *getElement() {
         return this->element;
     }
 
-    void setElement(T _element){
+    void setElement(T *_element) {
         this->element = _element;
     }
 
-    Link * getNext(){
+    Link *getNext() {
         return this->next;
     }
 
-    void setNext(Link * _next){
+    void setNext(Link *_next) {
         this->next = _next;
     }
 
-    Link * getPrev(){
+    Link *getPrev() {
         return this->prev;
     }
 
-    void setPrev(Link * _prev){
+    void setPrev(Link *_prev) {
         this->prev = _prev;
     }
 
